@@ -14,8 +14,9 @@ describe 'Links API' do
 
     post '/api/v1/links', :url => 'http://someurl.com'
 
+    updated_link = Link.find_by(url: 'http://someurl.com')
     expect(response).to be_success
     expect(response.status).to eq(202)
-    expect(link.read).to eq(6)
+    expect(updated_link.read).to eq(6)
   end
 end

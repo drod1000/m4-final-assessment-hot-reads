@@ -4,6 +4,9 @@ class Api::V1::LinksController < ApplicationController
     if(!@link)
       Link.create(link_params)
       render :nothing => true, :status => 201
+    else
+      @link.increment!(:read, 1)
+      render :nothing => true, :status => 202
     end
   end
 
