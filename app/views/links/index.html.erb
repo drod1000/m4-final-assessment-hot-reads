@@ -1,0 +1,15 @@
+<h1>All Links</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Reads</th>
+    </tr>
+  </thead>
+  <% @links.each do |link| %>
+    <tr>
+      <td><%= link.url %></td>
+      <td><%= link.read %></td>
+    </tr>
+  <%  end %>
+</table>
