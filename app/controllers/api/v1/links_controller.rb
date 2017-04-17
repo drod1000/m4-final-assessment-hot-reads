@@ -1,4 +1,9 @@
 class Api::V1::LinksController < ApplicationController
+  def index
+    @links = Link.top10
+    render json: @links, :status => 200
+  end
+
   def create
     @link = Link.find_by(url: params[:url])
     if(!@link)

@@ -33,11 +33,11 @@ describe 'Links API' do
     links = JSON.parse(response.body)
 
     expect(links.count).to eq(10)
-    
+
     link = links.first
 
-    expect(invoice).to be_a(Hash)
-    expect(invoice).to have_key("url")
-    expect(invoice).to have_key("read")
+    expect(link).to be_a(Hash)
+    expect(link).to have_key("url")
+    expect(link).to have_key("read")
   end
 end
