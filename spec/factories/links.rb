@@ -1,5 +1,7 @@
 FactoryGirl.define do
   factory :link do
-    url Faker::Internet.url
+    sequence :url do |n|
+      "http://url#{n}.com"
+    end
   end
 end
