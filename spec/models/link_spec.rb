@@ -33,7 +33,7 @@ RSpec.describe Link, type: :model do
       it 'read is 1 by default' do
         link = Link.create(url: 'http://someurl.com')
 
-        refute(link.read).to eq(1)
+        expect(link.read).to eq(1)
       end
     end
   end
