@@ -37,4 +37,27 @@ RSpec.describe Link, type: :model do
       end
     end
   end
+
+  describe 'methods' do
+    context '.top10' do
+      it 'can return the top ten links by number of reads' do
+        top_links_1 = create_list(:link, 5, read: 10)
+        top_links_2 = create_list(:link, 5, read: 8)
+        bottom_links = create_list(:link, 5, read: 5)
+        top10 = Link.top10
+
+        top_links_1.each do |link|
+          assert top10.include?(link)
+        end
+
+        top_links_2.each do |link|
+          assert top10.include?(link)
+        end
+
+        bottom_links.each do |link|
+          refute top10.include?(link)
+        end
+      end
+    end
+  end
 end
